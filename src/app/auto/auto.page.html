@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide></ion-menu-button>
+        </ion-buttons>
+
+        <ion-title>Listado de Autos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+
+        <ion-item *ngFor="let auto of autos | async">
+            <ion-label>
+                <span>{{ auto.marca }}</span>
+            </ion-label>
+            <ion-label>
+                <span>{{ auto.modelo }}</span>
+            </ion-label>
+
+            <ion-buttons slot="end">
+                <ion-button samll [href]="'auto/' + auto.id">
+                    <ion-icon name="eye"></ion-icon>
+                </ion-button>
+
+                <ion-button (click)="adicionarAuto(auto)" color="tertiary">
+                    <ion-icon name="create"></ion-icon>
+                </ion-button>
+
+                <ion-button (click)="eliminarAuto(auto)" color="danger">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+
+
+    </ion-list>
+</ion-content>

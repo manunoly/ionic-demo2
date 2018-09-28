@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngIf="auto$ | async as auto">
+        <ion-card-header>
+            <ion-card-title>{{ auto.id }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            <p *ngFor="let prop of auto | keyvalue">
+                <strong>{{ prop.key }}</strong>: {{ prop.value }}
+            </p>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>
